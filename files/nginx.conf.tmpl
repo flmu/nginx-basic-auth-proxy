@@ -29,6 +29,28 @@ http {
       # Do not pass Authorization header to destination
       proxy_set_header Authorization "";
     }
+	
+	# we turn a couple of common locations off harcoded
+	
+	location /healthz {
+        auth_basic off;
+    }
+	
+	location /ping {
+        auth_basic off;
+    }
+	
+	location /metrics {
+        auth_basic off;
+    }
+	
+	location /status {
+        auth_basic off;
+    }
+	
+	location /version {
+        auth_basic off;
+    }
   }
 
   server {

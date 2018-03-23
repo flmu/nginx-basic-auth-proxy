@@ -1,6 +1,6 @@
 # Docker image of Nginx Proxy with Basic Auth
 
-[![Docker Repository on Quay](https://quay.io/repository/dtan4/nginx-basic-auth-proxy/status "Docker Repository on Quay")](https://quay.io/repository/dtan4/nginx-basic-auth-proxy)
+[![Docker Repository on Quay](https://quay.io/repository/thomasjungblut/nginx-basic-auth-proxy/status "Docker Repository on Quay")](https://quay.io/repository/thomasjungblut/nginx-basic-auth-proxy)
 
 Simple HTTP Proxy with Basic Authentication
 
@@ -9,6 +9,9 @@ Simple HTTP Proxy with Basic Authentication
 User ---------------> | nginx-basic-auth-proxy | ---> | HTTP Server |
                       +------------------------+      +-------------+
 ```
+
+This project is a fork of [dtan4's nginx basic auth proxy](https://github.com/dtan4/nginx-basic-auth-proxy). 
+I only added a couple of common monitoring endpoints (/healthz, /ping, /status, /metrics and /version) to be accessible without basic auth.
 
 ## Run
 
@@ -23,7 +26,7 @@ $ docker run \
     -e PROXY_PASS=https://www.google.com \
     -e SERVER_NAME=proxy.dtan4.net \
     -e PORT=80 \
-    quay.io/dtan4/nginx-basic-auth-proxy
+    quay.io/thomasjungblut/nginx-basic-auth-proxy
 ```
 
 Access to http://localhost:8080 , then browser asks you username and password.
@@ -70,7 +73,7 @@ Reading: 0 Writing: 1 Waiting: 0
 |`PROXY_READ_TIMEOUT`|Value for `proxy_read_timeout` directive|`60s`|
 |`WORKER_PROCESSES`|Value for `worker_processes` directive|`auto`|
 
-## Author
+## Original Author
 
 Daisuke Fujita ([@dtan4](https://github.com/dtan4))
 
