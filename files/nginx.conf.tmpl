@@ -33,22 +33,46 @@ http {
 	# we turn a couple of common locations off harcoded
 	
 	location /healthz {
+        proxy_pass ##PROXY_PASS##;
+        proxy_set_header X-Forwarded-Host $host;
+        # Do not pass Authorization header to destination
+        proxy_set_header Authorization "";
+        
         auth_basic off;
     }
 	
 	location /ping {
+        proxy_pass ##PROXY_PASS##;
+        proxy_set_header X-Forwarded-Host $host;
+        # Do not pass Authorization header to destination
+        proxy_set_header Authorization "";
         auth_basic off;
     }
 	
 	location /metrics {
+        proxy_pass ##PROXY_PASS##;
+        proxy_set_header X-Forwarded-Host $host;
+        # Do not pass Authorization header to destination
+        proxy_set_header Authorization "";
+                
         auth_basic off;
     }
 	
 	location /status {
+        proxy_pass ##PROXY_PASS##;
+        proxy_set_header X-Forwarded-Host $host;
+        # Do not pass Authorization header to destination
+        proxy_set_header Authorization "";
+        
         auth_basic off;
     }
 	
 	location /version {
+        proxy_pass ##PROXY_PASS##;
+        proxy_set_header X-Forwarded-Host $host;
+        # Do not pass Authorization header to destination
+        proxy_set_header Authorization "";
+        
         auth_basic off;
     }
   }
